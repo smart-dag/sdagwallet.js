@@ -1,2 +1,3 @@
 # sdagwallet.js
 
+SDAG Wallet
