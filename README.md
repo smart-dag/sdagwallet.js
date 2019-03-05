@@ -73,3 +73,7 @@ await wallet.getUnit('AELe/VgaqoCJekPfVxd8huecW3g7n33ihFw1A3vVVPE=');
 ```javascript
 await wallet.send({ to: 'E5UR2ISKQWT3HISO55SHQYGYTF5BLWV6', amount: 2, text: 'Hello world' });
 ```
+
+## License
+
+GPL-3.0
