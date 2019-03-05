@@ -12,7 +12,7 @@ export default class Wallet {
     }
 
     autoConfigHub(type: 'mainnet' | 'testnet') {
-        this.address = type === 'mainnet' ? 'wss://hub.sdag.io:8086' : 'ws://10.168.1.131:6615';
+        this.address = type === 'mainnet' ? 'ws://hub.sdag.io:8086' : 'ws://10.168.3.131:6615';
     }
 
     generateMnemonic() {
@@ -59,11 +59,8 @@ export default class Wallet {
         return await this.hub.transfer({ from: this.mainAddress, to: args.to, amount: args.amount, signEcdsaPubkey: this.keyman.mainEcdsaPubKey, }, hash => this.keyman.sign(hash));
     }
 
-    setLocalstorage() {
-
-    }
-
     logout() {
         this.hub.close();
+        this.keyman = null;
     }
 }
