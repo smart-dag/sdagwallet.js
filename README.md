@@ -1,6 +1,6 @@
-# sdagwallet.js
+# SDAGWallet.js
 
-SDAG Wallet
+SDAG Wallet for Javascript Developers
 
 ## Installation
 
