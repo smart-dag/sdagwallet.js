@@ -12,7 +12,7 @@ async function demo() {
     let key = new Keyman(code);
     console.log(wallet.mainAddress, key.mainAddress);
 
-    console.log('Balance: ', await wallet.getBalance());
+    // console.log('Balance: ', await wallet.getBalance());
 
     console.log('Send to FVC55XN6VRX7BUJKJXM73EBGTUYB3YJT', (await wallet.send({ amount: 1, to: 'FVC55XN6VRX7BUJKJXM73EBGTUYB3YJT', text: 'Hello' })).joint.unit.unit);
     await (new Promise((resolve) => setTimeout(resolve, 3000)));
