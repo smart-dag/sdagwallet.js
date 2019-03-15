@@ -1,6 +1,6 @@
 {
   "name": "sdagwallet.js",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "SDAG Wallet",
   "main": "build/main/index.js",
   "typings": "build/main/index.d.ts",
@@ -52,7 +52,7 @@
   },
   "dependencies": {
     "bip39": "^2.5.0",
-    "sdag.js": "^0.1.10"
+    "sdag.js": "*"
   },
   "devDependencies": {
     "@types/bip39": "^2.4.2",
@@ -66,9 +66,9 @@
     "prettier": "^1.15.2",
     "standard-version": "^4.4.0",
     "trash-cli": "^1.4.0",
-    "tslint": "^5.11.0",
+    "tslint": "^5.14.0",
     "tslint-config-prettier": "^1.17.0",
-    "tslint-immutable": "^5.3.2",
+    "tslint-immutable": "^5.4.0",
     "typedoc": "^0.13.0",
     "typescript": "^3.1.6"
   },
