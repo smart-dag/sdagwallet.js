@@ -1,7 +1,8 @@
 import { HubClient, Keyman } from 'sdag.js';
 import bip39 from 'bip39';
+import { EventEmitter } from 'events';
 
-export default class Wallet {
+export default class Wallet extends EventEmitter {
 
     private address: string;
     private keyman: Keyman;

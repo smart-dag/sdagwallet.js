@@ -1,15 +1,20 @@
 // import Wallet from 'sdagwallet.js';
 import Wallet from '../index';
+import { Keyman } from 'sdag.js';
 
 async function demo() {
+    let code = 'sea absorb guilt regular retire fire invest urge tone peace enroll asthma';
     let wallet = new Wallet();
 
     wallet.autoConfigHub('testnet');
-    await wallet.loginWithMnemonic('glare couch beauty catalog mass spoil favorite upset else cereal pony wagon');
+    await wallet.loginWithMnemonic(code);
+
+    let key = new Keyman(code);
+    console.log(wallet.mainAddress, key.mainAddress);
 
     console.log('Balance: ', await wallet.getBalance());
 
-    console.log('Send to KOQXPPXPNJL5RYI4JO37HEBDTMYB7BGT', (await wallet.send({ amount: 1, to: 'KOQXPPXPNJL5RYI4JO37HEBDTMYB7BGT', text: 'Hello' })).joint.unit.unit);
+    console.log('Send to FVC55XN6VRX7BUJKJXM73EBGTUYB3YJT', (await wallet.send({ amount: 1, to: 'FVC55XN6VRX7BUJKJXM73EBGTUYB3YJT', text: 'Hello' })).joint.unit.unit);
     await (new Promise((resolve) => setTimeout(resolve, 3000)));
     console.log('Balance: ', await wallet.getBalance());
 }
