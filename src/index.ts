@@ -1,6 +1,7 @@
 import { HubClient, Keyman } from 'sdag.js';
 import bip39 from 'bip39';
 import { EventEmitter } from 'events';
+import { NotifyMessage } from 'sdag.js/build/main/types/sdag';
 
 export default class Wallet extends EventEmitter {
 
@@ -23,7 +24,9 @@ export default class Wallet extends EventEmitter {
     async loginWithMnemonic(mnemonic: string, password?: string) {
         this.keyman = new Keyman(mnemonic, password);
         this.hub = new HubClient();
-        return await this.hub.connect(this.address);
+        let connected = await this.hub.connect(this.address);
+
+        return connected;
     }
 
     get mainAddress() {
@@ -58,6 +61,11 @@ export default class Wallet extends EventEmitter {
 
     async send(args: { amount: number, to: string, text?: string }) {
         return await this.hub.transfer({ from: this.mainAddress, to: args.to, amount: args.amount, signEcdsaPubkey: this.keyman.mainEcdsaPubKey, }, hash => this.keyman.sign(hash));
+    }
+
+    onAssetMessage(cb: (msg: NotifyMessage) => void) {
+        this.hub.watch([this.mainAddress], msg => super.emit('NotifyMessage', msg));
+        super.addListener('NotifyMessage', cb);
     }
 
     logout() {
