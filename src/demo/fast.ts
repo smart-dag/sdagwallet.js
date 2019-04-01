@@ -6,7 +6,7 @@ async function demo() {
     let code = 'sea absorb guilt regular retire fire invest urge tone peace enroll asthma';
     let wallet = new Wallet();
 
-    wallet.autoConfigHub('testnet');
+    wallet.configHub('ws://10.168.3.131:6615');
     await wallet.loginWithMnemonic(code);
 
     let key = new Keyman(code);

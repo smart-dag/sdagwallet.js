@@ -68,6 +68,10 @@ export default class Wallet extends EventEmitter {
         super.addListener('NotifyMessage', cb);
     }
 
+    sign(text: string) {
+        return this.keyman.signMessage(text);
+    }
+
     logout() {
         this.hub.close();
         this.keyman = null;
