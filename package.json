@@ -51,8 +51,8 @@
     "node": ">=8.9"
   },
   "dependencies": {
-    "bip39": "^2.5.0",
-    "sdag.js": "^0.2.8"
+    "bip39": "^2.6.0",
+    "sdag.js": "^0.2.11"
   },
   "devDependencies": {
     "@types/bip39": "^2.4.2",
@@ -66,11 +66,11 @@
     "prettier": "^1.15.2",
     "standard-version": "^4.4.0",
     "trash-cli": "^1.4.0",
-    "tslint": "^5.14.0",
+    "tslint": "^5.15.0",
     "tslint-config-prettier": "^1.17.0",
     "tslint-immutable": "^5.5.2",
     "typedoc": "^0.13.0",
-    "typescript": "^3.3.4000"
+    "typescript": "^3.4.1"
   },
   "ava": {
     "failFast": true,

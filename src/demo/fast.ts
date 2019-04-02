@@ -16,11 +16,14 @@ async function demo() {
 
     // console.log('Send to FVC55XN6VRX7BUJKJXM73EBGTUYB3YJT', (await wallet.send({ amount: 1, to: 'FVC55XN6VRX7BUJKJXM73EBGTUYB3YJT', text: 'Hello' })).joint.unit.unit);
     // await (new Promise((resolve) => setTimeout(resolve, 3000)));
-    console.log('Balance: ', await wallet.getBalance());
+    // console.log('Balance: ', await wallet.getBalance());
 
     wallet.onAssetMessage(msg => console.log(msg));
 
-    await wallet.send({ amount: 2, to: wallet.mainAddress });
+    // await wallet.send({ amount: 2, to: wallet.mainAddress });
+    // await (new Promise((resolve) => setTimeout(resolve, 3000)));
+    console.log('Balance: ', await wallet.getBalance());
+
 }
 
 demo();
