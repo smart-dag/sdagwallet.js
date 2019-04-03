@@ -73,8 +73,8 @@ export default class Wallet extends EventEmitter {
         return this.keyman.signMessage(text);
     }
 
-    verify(text: string, signed: string) {
-        return this.keyman.verifyMessage(text, signed);
+    verify(text: string, signed: string, pubkey?: Buffer) {
+        return this.keyman.verifyMessage(text, signed, pubkey);
     }
 
     logout() {
