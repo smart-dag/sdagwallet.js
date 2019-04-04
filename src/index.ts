@@ -61,7 +61,7 @@ export default class Wallet extends EventEmitter {
     }
 
     async send(args: { amount: number, to: string, text?: string }) {
-        return await this.hub.transfer({ from: this.mainAddress, to: args.to, amount: args.amount, signEcdsaPubkey: this.keyman.mainEcdsaPubKey, }, hash => this.keyman.sign(hash));
+        return await this.hub.transfer({ from: this.mainAddress, to: args.to, amount: args.amount, signEcdsaPubkey: this.keyman.mainEcdsaPubKey, msg: args.text }, hash => this.keyman.sign(hash));
     }
 
     onAssetMessage(cb: (msg: NotifyMessage) => void) {

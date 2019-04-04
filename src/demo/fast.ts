@@ -20,7 +20,7 @@ async function demo() {
 
     wallet.onAssetMessage(msg => console.log(msg));
 
-    // await wallet.send({ amount: 2, to: wallet.mainAddress });
+    await wallet.send({ amount: 2, to: wallet.mainAddress, text: 'hello world' });
     // await (new Promise((resolve) => setTimeout(resolve, 3000)));
     console.log('Balance: ', await wallet.getBalance());
 
