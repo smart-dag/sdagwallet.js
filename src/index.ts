@@ -69,12 +69,20 @@ export default class Wallet extends EventEmitter {
         super.addListener('NotifyMessage', cb);
     }
 
+    onServerLost(cb: () => void) {
+        this.hub.onServerLost(cb);
+    }
+
     sign(text: string) {
         return this.keyman.signMessage(text);
     }
 
     verify(text: string, signed: string, pubkey?: Buffer) {
         return this.keyman.verifyMessage(text, signed, pubkey);
+    }
+
+    validateAddress(addr: string) {
+        return this.keyman.validateAddress(addr);
     }
 
     logout() {
