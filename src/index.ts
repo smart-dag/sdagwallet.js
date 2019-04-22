@@ -65,7 +65,12 @@ export default class Wallet extends EventEmitter {
     }
 
     onAssetMessage(cb: (msg: NotifyMessage) => void) {
-        this.hub.watch([this.mainAddress], msg => super.emit('NotifyMessage', msg));
+        this.watchAddresses([this.mainAddress], cb);
+    }
+
+    watchAddresses(addrs: string[], cb: (msg: NotifyMessage) => void) {
+        if (addrs.length === 0) return;
+        this.hub.watch(addrs, msg => super.emit('NotifyMessage', msg));
         super.addListener('NotifyMessage', cb);
     }
 
