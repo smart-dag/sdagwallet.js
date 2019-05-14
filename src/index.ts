@@ -23,7 +23,7 @@ export default class Wallet extends EventEmitter {
 
     async loginWithMnemonic(mnemonic: string, password?: string) {
         this.keyman = new Keyman(mnemonic, password);
-        this.hub = new HubClient();
+        this.hub = new HubClient({ peerId: this.keyman.mainAddress });
         this.hub.peerId = this.keyman.mainAddress;
 
         let connected = await this.hub.connect(this.address);
