@@ -8,6 +8,7 @@ export default class Wallet extends EventEmitter {
     private address: string;
     private keyman: Keyman;
     private hub: HubClient;
+    peerId?: string;
 
     configHub(address: string) {
         this.address = address;
@@ -21,10 +22,17 @@ export default class Wallet extends EventEmitter {
         return bip39.generateMnemonic();
     }
 
+    constructor(opts?: { peerId?: string }) {
+        super();
+
+        if (opts) {
+            this.peerId = opts.peerId;
+        }
+    }
+
     async loginWithMnemonic(mnemonic: string, password?: string) {
         this.keyman = new Keyman(mnemonic, password);
-        this.hub = new HubClient({ peerId: this.keyman.mainAddress });
-        this.hub.peerId = this.keyman.mainAddress;
+        this.hub = new HubClient({ peerId: this.peerId || this.keyman.mainAddress });
 
         let connected = await this.hub.connect(this.address);
         return connected;
